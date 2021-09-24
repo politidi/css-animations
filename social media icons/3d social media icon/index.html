@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3D Social Media Icon Hover Effects</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+</head>
+<body>
+	<section class="socialMedia">
+		<ul class="sci">
+			<li data-color="#1a4b78" data-text="VK"><a href="#" class="vk"><i class="fab fa-vk"></i></a></li>
+			<li data-color="#0088cc" data-text="Telegram"><a href="#" class="telegram"><i class="fab fa-telegram"></i></a></li>
+			<li data-color="#de1b85" data-text="Instagram"><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></li>
+			<li data-color="#25d366" data-text="Whatsapp"><a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+			<li data-color="#1877f2" data-text="Facebook"><a href="#" class="facebook"><i class="fab fa-facebook"></i></a></li>
+			<li data-color="#0099ff" data-text="Twitter"><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+		</ul>
+	</section>
+
+	<script src="vanilla-tilt.min.js"></script>
+
+	<script>
+		VanillaTilt.init(document.querySelectorAll('.sci li a'), {
+			max: 30,
+			speed: 400,
+			glar: true,
+			"max-glare": 1,
+		});
+
+		let list = document.querySelectorAll('.sci li');
+		let bg = document.querySelector('.socialMedia');
+		list.forEach(elements => {
+			elements.addEventListener('mouseenter', function(event){
+				let color = event.target.getAttribute('data-color');
+				bg.style.backgroundColor = color;
+			})
+			elements.addEventListener('mouseleave', function(event){
+				bg.style.backgroundColor = '#000';
+			})
+		})
+	</script>
+</body>
+</html>
