@@ -1,6 +1,7 @@
 import smtplib
 import os
 import sys
+import dotenv
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -9,7 +10,8 @@ from platform import python_version
 
 server = 'smtp.gmail.com'
 user = 'dead.shadow.2707@gmail.com'
-password = 'uwmxhrptuspgjuul'
+dotenv.load_dotenv(".env")
+password = os.environ['PASSWORD']
 
 
 recipient = 'frost-128@mail.ru'
