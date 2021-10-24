@@ -1,0 +1,103 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #333;
+}
+
+nav {
+	position: relative;
+	width: 350px;
+	height: 70px;
+}
+
+nav ul {
+	display: flex;
+}
+
+nav ul li {
+	position: relative;
+	list-style: none;
+	width: 70px;
+	height: 70px;
+	z-index: 1;
+}
+
+nav ul li a {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: #fff;
+	text-align: center;
+}
+
+nav ul li a .icon {
+	position: relative;
+	line-height: 75px;
+	transition: .5s;	
+	font-size: 30px;
+}
+
+nav ul li.active a .icon {
+	font-size: 20px;
+	transform: translateY(-6px);
+}
+
+nav ul li a .text {
+	position: absolute;
+	font-size: 12px;
+	bottom: 20px;
+	font-weight: 400;
+	transition: .25s;
+	text-transform: uppercase;
+	transform: scale(0);
+}
+
+nav ul li.active a .text {
+	transform: scale(1);
+}
+
+.indicator {
+	position: absolute;
+	left: 0;
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+	transition: .5s;
+}
+
+nav ul li:nth-child(1).active ~ .indicator {
+	background: #f53b57;
+	box-shadow: 0 15px 25px #f53b57;
+	transform: translateX(calc(70px * 0));
+}
+nav ul li:nth-child(2).active ~ .indicator {
+	background: #5d62fb;
+	box-shadow: 0 15px 25px #5d62fb;
+	transform: translateX(calc(70px * 1));
+}
+nav ul li:nth-child(3).active ~ .indicator {
+	background: #05c46b;
+	box-shadow: 0 15px 25px #05c46b;
+	transform: translateX(calc(70px * 2));
+}
+nav ul li:nth-child(4).active ~ .indicator {
+	background: #0fbcf9;
+	box-shadow: 0 15px 25px #0fbcf9;
+	transform: translateX(calc(70px * 3));
+}
+nav ul li:nth-child(5).active ~ .indicator {
+	background: #ffa801;
+	box-shadow: 0 15px 25px #ffa801;
+	transform: translateX(calc(70px * 4));
+}
