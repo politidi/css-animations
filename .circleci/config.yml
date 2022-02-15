@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            ssh -o "StrictHostKeyChecking no" beep@51.15.25.60 mkdir kek
+            ssh beep@51.15.25.60 mkdir kek
             
 workflows:
   sample:
