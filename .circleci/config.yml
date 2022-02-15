@@ -1,19 +1,21 @@
 version: 2.1
 
-orbs:
-  python: circleci/python@1.5.0
 jobs:
-  build-and-test:
+  build:
     docker:
-      - image: cimg/python:3.8
+      - image: circleci/python:3.8
+    working_directory: ~/repo
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
+      - add_ssh_keys:
+          fingerprints:
+            - "f8:06:81:36:fc:60:47:03:ac:af:c7:dc:23:28:5b:07"
       - run:
           name: Run tests
-          command: pytest
+          command: |
+            mkdir kek && cd kek && touch lol
+            
 workflows:
   sample:
     jobs:
-      - build-and-test
+      - build
