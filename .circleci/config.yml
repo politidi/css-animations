@@ -7,13 +7,13 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "f8:06:81:36:fc:60:47:03:ac:af:c7:dc:23:28:5b:07"
+#      - add_ssh_keys:
+#          fingerprints:
+#            - "f8:06:81:36:fc:60:47:03:ac:af:c7:dc:23:28:5b:07"
       - run:
           name: Run tests
           command: |
-            ssh beep@51.15.25.60 mkdir kek
+            ssh -o "StrictHostKeyChecking no" beep@51.15.25.60 mkdir kek
             
 workflows:
   sample:
