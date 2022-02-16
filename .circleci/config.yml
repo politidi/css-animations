@@ -1,21 +1,25 @@
-version: 2.1
+version: 2
 
 jobs:
   build:
     docker:
       - image: circleci/python:3.8
     working_directory: ~/repo
+  deploy:
+    machine:
+      enabled: true
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "f8:06:81:36:fc:60:47:03:ac:af:c7:dc:23:28:5b:07"
       - run:
           name: Run tests
           command: |
             ssh beep@51.15.25.60 mkdir kek
             
 workflows:
-  sample:
+  version: 2
+  build-and-deploy:
     jobs:
       - build
+      - deploy  
+          requires:
+            - build
