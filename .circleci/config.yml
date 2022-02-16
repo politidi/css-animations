@@ -5,11 +5,15 @@ jobs:
     docker:
       - image: circleci/python:3.8
     working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: foo
+          command: echo lol        
   deploy:
     machine:
       enabled: true
     steps:
-      - checkout
       - run:
           name: Run tests
           command: |
